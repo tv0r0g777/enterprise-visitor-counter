@@ -615,9 +615,6 @@ class MainWindow(QMainWindow):
 
         main.setSpacing(14)
 
-        # ====================================================
-        # HEADER
-        # ====================================================
 
         header = QHBoxLayout()
 
@@ -668,17 +665,10 @@ class MainWindow(QMainWindow):
 
         main.addLayout(header)
 
-        # ====================================================
-        # MAIN CONTENT
-        # ====================================================
 
         content = QHBoxLayout()
 
         content.setSpacing(14)
-
-        # ====================================================
-        # CAMERA
-        # ====================================================
 
         camera_panel = QFrame()
 
@@ -779,10 +769,6 @@ class MainWindow(QMainWindow):
         camera_layout.addWidget(
             hint
         )
-
-        # ====================================================
-        # RIGHT PANEL
-        # ====================================================
 
         right_panel = QFrame()
 
@@ -981,10 +967,6 @@ class MainWindow(QMainWindow):
             1,
         )
 
-        # ====================================================
-        # RESPONSIVE SCROLL
-        # ====================================================
-
         right_scroll = QScrollArea()
 
         right_scroll.setObjectName(
@@ -1021,10 +1003,6 @@ class MainWindow(QMainWindow):
             content,
             1,
         )
-
-        # ====================================================
-        # SOURCE PANEL
-        # ====================================================
 
         source_panel = (
             self.make_control_panel()
@@ -1085,10 +1063,6 @@ class MainWindow(QMainWindow):
         main.addWidget(
             source_panel
         )
-
-        # ====================================================
-        # SIMULATION PANEL
-        # ====================================================
 
         sim_panel = (
             self.make_control_panel()
@@ -1278,10 +1252,6 @@ class MainWindow(QMainWindow):
 
         return card, value
 
-    # ========================================================
-    # DARK DIALOGS
-    # ========================================================
-
     @staticmethod
     def dialog_stylesheet():
 
@@ -1414,10 +1384,6 @@ class MainWindow(QMainWindow):
             self,
             self.db,
         ).exec()
-
-    # ========================================================
-    # INFORMATION
-    # ========================================================
 
     def refresh_model_info(self):
 
@@ -1592,10 +1558,6 @@ class MainWindow(QMainWindow):
             f"{accuracy * 100:.1f}%"
         )
 
-    # ========================================================
-    # EXPORT
-    # ========================================================
-
     def export_today_csv(self):
 
         rows = self.db.today_visits()
@@ -1668,10 +1630,6 @@ class MainWindow(QMainWindow):
             f"{path}",
         )
 
-    # ========================================================
-    # YOLO11n
-    # ========================================================
-
     def load_model(self):
 
         try:
@@ -1715,10 +1673,6 @@ class MainWindow(QMainWindow):
             except Exception:
 
                 pass
-
-    # ========================================================
-    # SOURCES
-    # ========================================================
 
     def open_video(self):
 
@@ -1867,10 +1821,6 @@ class MainWindow(QMainWindow):
             SIM_TIMER_MS
         )
 
-    # ========================================================
-    # PERSON IMAGE
-    # ========================================================
-
     def load_person_sprite(self):
 
         path, _ = (
@@ -1958,10 +1908,6 @@ class MainWindow(QMainWindow):
             self.person_sprite
             is not None
         )
-
-    # ========================================================
-    # SIMULATOR CONTROLS
-    # ========================================================
 
     def add_entering_person(self):
 
@@ -2080,10 +2026,6 @@ class MainWindow(QMainWindow):
                 float(speed),
             )
         )
-
-    # ========================================================
-    # SIMULATOR RENDER
-    # ========================================================
 
     def render_simulation_frame(
         self,
@@ -2535,10 +2477,6 @@ class MainWindow(QMainWindow):
                 ]
             )
 
-    # ========================================================
-    # AUTO TEST
-    # ========================================================
-
     def start_auto_test(self):
 
         if self.test_active:
@@ -2966,10 +2904,6 @@ class MainWindow(QMainWindow):
                 False,
             )
 
-    # ========================================================
-    # VIDEO PROCESSING
-    # ========================================================
-
     def start_processing(self):
 
         if self.model is None:
@@ -3084,10 +3018,6 @@ class MainWindow(QMainWindow):
 
             self.update_auto_test()
 
-    # ========================================================
-    # REAL NEURAL NETWORK CALL
-    # ========================================================
-
     def analyze_frame(
         self,
         frame,
@@ -3102,10 +3032,6 @@ class MainWindow(QMainWindow):
             *
             LINE_POSITION
         )
-
-        # ----------------------------------------------------
-        # НАСТОЯЩИЙ ВЫЗОВ YOLO11n + ByteTrack
-        # ----------------------------------------------------
 
         results = self.model.track(
             frame,
@@ -3399,10 +3325,6 @@ class MainWindow(QMainWindow):
             track_id
         ] = side
 
-    # ========================================================
-    # EVENTS
-    # ========================================================
-
     def source_name(self):
 
         if self.test_active:
@@ -3518,10 +3440,6 @@ class MainWindow(QMainWindow):
 
         self.refresh_today_data()
 
-    # ========================================================
-    # DISPLAY
-    # ========================================================
-
     def show_frame(
         self,
         frame,
@@ -3601,10 +3519,6 @@ class MainWindow(QMainWindow):
         self.close_video_source()
 
         event.accept()
-
-    # ========================================================
-    # VISUAL STYLE
-    # ========================================================
 
     def apply_styles(self):
 
